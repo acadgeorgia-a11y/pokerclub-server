@@ -6,7 +6,7 @@ import { setupConnectionHandler } from './connection-handler.js';
 export function createSocketServer(httpServer: HttpServer): { io: SocketServer; tableManager: TableManager } {
   const io = new SocketServer(httpServer, {
     cors: {
-      origin: process.env.CLIENT_URL ?? 'http://localhost:5173',
+      origin: process.env.CLIENT_URL ? process.env.CLIENT_URL.split(',') : '*',
       methods: ['GET', 'POST'],
     },
   });
