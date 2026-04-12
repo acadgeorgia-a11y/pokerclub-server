@@ -31,6 +31,7 @@ export interface SeatState {
   username: string;
   stack: number;
   currentBet: number;
+  buyInTotal: number;
   isFolded: boolean;
   isAllIn: boolean;
   isSittingOut: boolean;

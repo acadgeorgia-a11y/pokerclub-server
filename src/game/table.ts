@@ -384,6 +384,7 @@ export class Table {
       username: player.username,
       stack: player.stack,
       currentBet: enginePlayer?.currentBet ?? 0,
+      buyInTotal: player.buyInTotal,
       isFolded: enginePlayer?.isFolded ?? false,
       isAllIn: enginePlayer?.isAllIn ?? false,
       isSittingOut: player.isSittingOut,

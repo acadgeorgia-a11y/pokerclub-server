@@ -3,6 +3,7 @@ export class Player {
   username: string;
   socketId: string;
   stack: number;
+  buyInTotal: number;
   seatIndex: number;
   isSittingOut: boolean;
   isDisconnected: boolean;
@@ -22,6 +23,7 @@ export class Player {
     this.socketId = socketId;
     this.seatIndex = seatIndex;
     this.stack = stack;
+    this.buyInTotal = stack;
     this.isSittingOut = false;
     this.isDisconnected = false;
     this.disconnectedAt = null;
