@@ -117,6 +117,15 @@ export class Table {
     }));
 
     this.game.startHand(seatInputs, this.dealerSeatIndex);
+
+    // Send full state sync to each player (ensures clients are up-to-date)
+    for (const player of this.seats) {
+      if (player) {
+        const state = this.getStateForPlayer(player.id);
+        const holeCards = this.game?.getPlayer(player.id)?.holeCards ?? [];
+        this.emitToPlayer(player.socketId, 'table_state_sync', { tableState: state, holeCards });
+      }
+    }
   }
 
   private advanceDealer(activePlayers: Player[]): void {
